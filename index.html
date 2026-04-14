@@ -472,6 +472,20 @@ section {
 .pet-card:nth-child(2) .pet-avatar { background: linear-gradient(135deg, #B2EBF2, #80DEEA); }
 .pet-card:nth-child(3) .pet-avatar { background: linear-gradient(135deg, #E1BEE7, #CE93D8); }
 .pet-card:nth-child(4) .pet-avatar { background: linear-gradient(135deg, #C8E6C9, #A5D6A7); }
+.pet-avatar-photo {
+  width: 100%;
+  height: 200px;
+  border-radius: 16px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+.pet-description {
+  font-size: 0.82rem;
+  color: #777;
+  line-height: 1.5;
+  margin-top: 0.5rem;
+  text-align: left;
+}
 
 .pet-name {
   font-family: 'Fredoka', sans-serif;
@@ -1237,6 +1251,14 @@ footer p {
   <h2 class="section-title fade-up">Cercano una famiglia 🏡</h2>
   <p class="section-subtitle fade-up">Questi amici speciali aspettano solo te. Ogni adozione è un atto d'amore che cambia due vite.</p>
   <div class="pets-grid">
+    <div class="pet-card fade-up">
+      <img src="bobby.jpg" alt="Bobby" class="pet-avatar-photo">
+      <div class="pet-name">Bobby</div>
+      <div class="pet-detail">Incrocio maremmano, ~40 giorni</div>
+      <div class="pet-detail">Dolcissimo, curioso e pronto a fidarsi</div>
+      <div class="pet-description">Trovato a 20 giorni in una strada pericolosa e recuperato insieme alla mamma. Microchippato, primo vaccino fatto, in salute. Si trova in provincia di Trapani, raggiungibile ovunque con staffetta autorizzata.</div>
+      <span class="pet-badge badge-nuovo">Nuovo arrivo</span>
+    </div>
     <div class="pet-card fade-up"><div class="pet-avatar">🐕</div><div class="pet-name">Luna</div><div class="pet-detail">Meticcia, 2 anni</div><div class="pet-detail">Dolce e giocherellona</div><span class="pet-badge badge-urgente">Urgente</span></div>
     <div class="pet-card fade-up"><div class="pet-avatar">🐈</div><div class="pet-name">Micio</div><div class="pet-detail">Gatto europeo, 1 anno</div><div class="pet-detail">Coccolone e tranquillo</div><span class="pet-badge badge-disponibile">Disponibile</span></div>
     <div class="pet-card fade-up"><div class="pet-avatar">🐶</div><div class="pet-name">Rocky</div><div class="pet-detail">Pastore siciliano, 3 anni</div><div class="pet-detail">Leale e protettivo</div><span class="pet-badge badge-nuovo">Nuovo arrivo</span></div>
