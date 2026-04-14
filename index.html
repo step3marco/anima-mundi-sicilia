@@ -572,7 +572,58 @@ section {
   font-size: 0.9rem;
   color: #666;
   line-height: 1.7;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+}
+.aiuto-detail {
+  background: var(--warm-bg);
+  border-radius: 12px;
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--deep);
+  text-align: left;
+}
+.aiuto-detail strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--forest);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.aiuto-detail a {
+  color: var(--coral);
+  text-decoration: none;
+  font-weight: 600;
+}
+.aiuto-detail a:hover {
+  text-decoration: underline;
+}
+.social-links-box {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.social-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  background: var(--warm-bg);
+  color: var(--deep);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+.social-link-btn:hover {
+  background: var(--coral);
+  color: var(--white);
+  transform: translateY(-2px);
 }
 
 /* ===== CONTATTI ===== */
@@ -699,6 +750,245 @@ footer p {
   font-size: 0.85rem;
 }
 
+/* ===== DETAIL SECTIONS ===== */
+.detail-section {
+  padding: 5rem 2rem;
+}
+.detail-section:nth-of-type(odd) {
+  background: var(--white);
+}
+.detail-section:nth-of-type(even) {
+  background: var(--warm-bg);
+}
+.detail-box {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+.detail-item {
+  background: var(--warm-bg);
+  border-radius: 16px;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+.detail-item:last-child { margin-bottom: 0; }
+.detail-item strong {
+  display: block;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1rem;
+  color: var(--deep);
+  margin-bottom: 0.3rem;
+}
+.detail-item a {
+  color: var(--coral);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+.detail-item a:hover { text-decoration: underline; }
+.detail-item .iban-code {
+  font-family: monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--deep);
+  letter-spacing: 1px;
+  word-break: break-all;
+}
+.social-links-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.social-link-big {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 1.5rem;
+  border-radius: 16px;
+  background: var(--warm-bg);
+  color: var(--deep);
+  text-decoration: none;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+.social-link-big:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+.social-link-big span.social-emoji {
+  font-size: 2rem;
+}
+
+/* ===== ASSOCIAZIONE FORM ===== */
+.associazione-section {
+  background: linear-gradient(135deg, #E8F8F5, #F3E5F5);
+  padding: 5rem 2rem;
+}
+.associazione-section .section-title { color: var(--grass); }
+.associazione-form {
+  max-width: 650px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 24px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+.associazione-form label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  color: var(--deep);
+}
+.associazione-form input,
+.associazione-form select,
+.associazione-form textarea {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border: 2px solid #EEE;
+  border-radius: 14px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  transition: border-color 0.3s;
+  background: var(--warm-bg);
+  margin-bottom: 1rem;
+}
+.associazione-form input:focus,
+.associazione-form select:focus,
+.associazione-form textarea:focus {
+  outline: none;
+  border-color: var(--grass);
+}
+.associazione-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* Form feedback messages */
+.form-success {
+  display: none;
+  background: #d4edda;
+  color: #155724;
+  padding: 1rem 1.5rem;
+  border-radius: 14px;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+.form-success.show { display: block; }
+
+/* ===== NEWS ===== */
+.news-section {
+  background: linear-gradient(135deg, #FFF5E4 0%, #E8F8F5 100%);
+}
+.news-section .section-title { color: var(--coral); }
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.news-card {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.news-card-body {
+  padding: 1.5rem;
+}
+.news-card-date {
+  font-size: 0.8rem;
+  color: var(--coral);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+.news-card h3 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--deep);
+}
+.news-card p {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+.news-card .news-link {
+  color: var(--coral);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+.news-card .news-link:hover {
+  text-decoration: underline;
+}
+.news-card-emoji {
+  font-size: 4rem;
+  text-align: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #FFE8CC, #FFDAB9);
+}
+.news-card-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+.news-card-images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+.news-card-images img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+.news-badge {
+  display: inline-block;
+  background: var(--coral);
+  color: var(--white);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.8rem;
+  border-radius: 20px;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.news-video-embed {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background: #000;
+}
+.news-video-embed iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 /* ===== WAVE DIVIDERS ===== */
 .wave-divider {
   width: 100%;
@@ -775,6 +1065,7 @@ footer p {
     <li><a href="#attivita">Attività</a></li>
     <li><a href="#adozioni">Adozioni</a></li>
     <li><a href="#aiutaci">Aiutaci</a></li>
+    <li><a href="#news">News</a></li>
     <li><a href="#contatti">Contatti</a></li>
   </ul>
   <button class="nav-hamburger" onclick="document.getElementById('navLinks').classList.toggle('active')" aria-label="Menu">
@@ -856,14 +1147,126 @@ footer p {
   <h2 class="section-title fade-up">Come puoi aiutare 💛</h2>
   <p class="section-subtitle fade-up">Ogni gesto conta. Scegli come dare il tuo contributo e insieme faremo la differenza!</p>
   <div class="aiuto-grid">
-    <div class="aiuto-card fade-up"><div class="aiuto-icon">🐾</div><h3>Adotta</h3><p>Apri il tuo cuore e la tua casa a un amico peloso. L'adozione è il regalo più bello che puoi fare.</p><a href="#contatti" class="btn btn-primary" style="font-size:0.9rem;padding:0.7rem 1.5rem;">Info adozioni</a></div>
-    <div class="aiuto-card fade-up"><div class="aiuto-icon">🤲</div><h3>Diventa volontario</h3><p>Unisciti alla nostra famiglia! Servono mani, cuori e sorrisi per prenderci cura dei nostri amici.</p><a href="#contatti" class="btn btn-secondary" style="font-size:0.9rem;padding:0.7rem 1.5rem;color:var(--sky);">Unisciti a noi</a></div>
-    <div class="aiuto-card fade-up"><div class="aiuto-icon">🎁</div><h3>Dona</h3><p>Cibo, coperte, medicine o un contributo economico: ogni donazione aiuta concretamente i nostri animali.</p><a href="#contatti" class="btn btn-primary" style="font-size:0.9rem;padding:0.7rem 1.5rem;">Dona ora</a></div>
-    <div class="aiuto-card fade-up"><div class="aiuto-icon">📣</div><h3>Diffondi</h3><p>Condividi i nostri appelli sui social, parla di noi con amici e colleghi. La visibilità salva vite!</p><a href="#contatti" class="btn btn-secondary" style="font-size:0.9rem;padding:0.7rem 1.5rem;color:var(--sky);">Seguici su Facebook</a></div>
+    <div class="aiuto-card fade-up"><div class="aiuto-icon">🐾</div><h3>Adotta</h3><p>Apri il tuo cuore e la tua casa a un amico peloso. L'adozione è il regalo più bello che puoi fare.</p><a href="#info-adozioni" class="btn btn-primary" style="font-size:0.9rem;padding:0.7rem 1.5rem;">Info adozioni</a></div>
+    <div class="aiuto-card fade-up"><div class="aiuto-icon">🤝</div><h3>Diventa socio</h3><p>Unisciti alla nostra famiglia! Tesserati e aiutaci a fare la differenza per gli animali del territorio.</p><a href="#form-socio" class="btn btn-secondary" style="font-size:0.9rem;padding:0.7rem 1.5rem;color:var(--sky);">Diventa socio</a></div>
+    <div class="aiuto-card fade-up"><div class="aiuto-icon">🎁</div><h3>Dona</h3><p>Ogni contributo, economico o materiale, fa la differenza per i nostri animali.</p><a href="#info-donazioni" class="btn btn-primary" style="font-size:0.9rem;padding:0.7rem 1.5rem;">Dona ora</a></div>
+    <div class="aiuto-card fade-up"><div class="aiuto-icon">📣</div><h3>Diffondi</h3><p>Condividi i nostri appelli sui social, parla di noi. La visibilità salva vite!</p><a href="#info-social" class="btn btn-secondary" style="font-size:0.9rem;padding:0.7rem 1.5rem;color:var(--sky);">Seguici</a></div>
   </div>
 </section>
 
 <!-- CONTATTI -->
+
+<!-- NEWS -->
+<section class="news-section" id="news">
+  <h2 class="section-title fade-up">News e Salvataggi 📰</h2>
+  <p class="section-subtitle fade-up">Segui le nostre storie, i salvataggi e le ultime novità dall'associazione.</p>
+  <div class="news-grid">
+
+    <!-- NEWS - ARGO -->
+    <div class="news-card fade-up" style="grid-column: span 2; max-width: 700px; margin: 0 auto;">
+      <div class="news-card-images">
+        <img src="cane1.jpg" alt="Argo, cucciolo in difficoltà" class="news-card-img">
+        <img src="cane2.jpg" alt="Argo cerca aiuto" class="news-card-img">
+      </div>
+      <div class="news-card-body">
+        <span class="news-badge">🚨 Urgente</span>
+        <div class="news-card-date">Aprile 2026</div>
+        <h3>Aiuto per Argo, un cucciolo in difficoltà</h3>
+        <p>Questo piccolo ha solo 4 mesi ed è stato investito. Al momento presenta seri problemi alla zampa posteriore destra e ha urgente bisogno di una <strong>radiografia</strong> per capire l'entità del danno e intervenire nel modo giusto.</p>
+        <p style="margin-top:0.5rem;"><strong>Cerchiamo:</strong></p>
+        <p style="margin-top:0.3rem;">• Un piccolo contributo economico per coprire le spese veterinarie<br>• Uno <strong>stallo temporaneo</strong> dove possa stare tranquillo e ricevere le cure necessarie</p>
+        <p style="margin-top:0.5rem;">Anche una condivisione può fare la differenza! Chiunque voglia contribuire o offrire aiuto può contattarci in privato.</p>
+        <p style="margin-top:0.5rem;">Se desideri puoi contribuire anche con una donazione diretta: trovate l'IBAN nella sezione <a href="#info-donazioni" class="news-link">Dona</a>.</p>
+        <p style="margin-top:0.8rem; font-weight:700; color: var(--coral);">Grazie di cuore a chi darà una mano ❤️</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- INFO ADOZIONI -->
+<section class="detail-section" id="info-adozioni" style="background: var(--white);">
+  <h2 class="section-title fade-up" style="color: var(--coral);">Info Adozioni 🐾</h2>
+  <p class="section-subtitle fade-up">Vuoi adottare uno dei nostri amici? Chiamaci o scrivici, ti guideremo in tutto il percorso!</p>
+  <div class="detail-box fade-up">
+    <div class="detail-item">
+      <strong>📞 Telefono</strong>
+      <a href="tel:INSERISCI-NUMERO-1">INSERISCI-NUMERO-1</a>
+    </div>
+    <div class="detail-item">
+      <strong>📞 Telefono 2</strong>
+      <a href="tel:INSERISCI-NUMERO-2">INSERISCI-NUMERO-2</a>
+    </div>
+    <div class="detail-item">
+      <strong>📧 Email</strong>
+      <a href="mailto:animamundisicilia@gmail.com">animamundisicilia@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- FORM DIVENTA SOCIO -->
+<section class="associazione-section" id="form-socio">
+  <h2 class="section-title fade-up">Diventa Socio 🤝</h2>
+  <p class="section-subtitle fade-up">Compila il modulo e ti ricontatteremo per completare l'iscrizione!</p>
+  
+  <form class="associazione-form fade-up" action="https://formspree.io/f/TUOCODICE" method="POST">
+    <div class="form-row">
+      <div>
+        <label>Nome *</label>
+        <input type="text" name="nome" required placeholder="Il tuo nome" />
+      </div>
+      <div>
+        <label>Cognome *</label>
+        <input type="text" name="cognome" required placeholder="Il tuo cognome" />
+      </div>
+    </div>
+    <label>Email *</label>
+    <input type="email" name="email" required placeholder="La tua email" />
+    <label>Telefono</label>
+    <input type="tel" name="telefono" placeholder="Il tuo numero di telefono" />
+    <label>Perché vuoi unirti a noi?</label>
+    <textarea name="motivazione" placeholder="Raccontaci qualcosa di te e perché vorresti associarti..."></textarea>
+    <input type="hidden" name="_subject" value="Nuova richiesta associazione - Anima Mundi Sicilia" />
+    <button type="submit" class="btn btn-primary" style="width:100%;">Invia richiesta 🐾</button>
+    <div class="form-success">Grazie! La tua richiesta è stata inviata. Ti ricontatteremo presto! 🎉</div>
+  </form>
+</section>
+
+<!-- DONAZIONI -->
+<section class="detail-section" id="info-donazioni" style="background: var(--white);">
+  <h2 class="section-title fade-up" style="color: var(--coral);">Dona 🎁</h2>
+  <p class="section-subtitle fade-up">Ogni contributo, grande o piccolo, aiuta concretamente i nostri animali.</p>
+  <div class="detail-box fade-up">
+    <div class="detail-item">
+      <strong>💳 Bonifico bancario</strong>
+      IBAN: <span class="iban-code">IT48G0303281910010001215410</span><br>
+      Intestato a: <em>Anima Mundi Sicilia</em><br>
+      Causale: <em>Donazione liberale</em>
+    </div>
+    <div class="detail-item">
+      <strong>🅿️ PayPal</strong>
+      <a href="INSERISCI-LINK-PAYPAL" target="_blank">Dona con PayPal →</a>
+    </div>
+    <div class="detail-item">
+      <strong>📦 Donazioni materiali</strong>
+      Cibo, coperte, medicine, cucce... tutto è utile!<br>
+      Contatta: <a href="tel:INSERISCI-NUMERO-DONAZIONI">NOME-REFERENTE — INSERISCI-NUMERO</a>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<section class="detail-section" id="info-social" style="background: linear-gradient(135deg, #FFF5E4 0%, #F3E5F5 100%);">
+  <h2 class="section-title fade-up" style="color: var(--lavender);">Seguici sui Social 📣</h2>
+  <p class="section-subtitle fade-up">Seguici, condividi e aiutaci a dare visibilità ai nostri amici a quattro zampe!</p>
+  <div class="social-links-grid fade-up">
+    <a href="https://www.facebook.com/groups/animamundisicilia/" target="_blank" class="social-link-big" style="background:#E8F0FE;"><span class="social-emoji">📘</span> Facebook</a>
+    <a href="INSERISCI-LINK-INSTAGRAM" target="_blank" class="social-link-big" style="background:#FCEDF2;"><span class="social-emoji">📸</span> Instagram</a>
+    <a href="INSERISCI-LINK-TIKTOK" target="_blank" class="social-link-big" style="background:#E8F8F5;"><span class="social-emoji">🎵</span> TikTok</a>
+  </div>
+</section>
+
 <section class="contatti" id="contatti">
   <h2 class="section-title fade-up">Contattaci 📬</h2>
   <p class="section-subtitle fade-up">Hai domande, vuoi adottare o semplicemente dirci ciao? Siamo qui per te!</p>
@@ -882,19 +1285,21 @@ footer p {
     <div class="contatto-item">
       <div class="contatto-icon">📧</div>
       <h3>Email</h3>
-      <a href="mailto:info@animamundisicilia.it">info@animamundisicilia.it</a>
+      <a href="mailto:animamundisicilia@gmail.com">animamundisicilia@gmail.com</a>
     </div>
   </div>
 
-  <div class="form-container fade-up">
+  <form class="form-container fade-up" action="https://formspree.io/f/TUOCODICE" method="POST" id="formContatto">
     <div class="form-row">
-      <input type="text" placeholder="Il tuo nome" />
-      <input type="email" placeholder="La tua email" />
+      <input type="text" name="nome" placeholder="Il tuo nome" required />
+      <input type="email" name="email" placeholder="La tua email" required />
     </div>
-    <input type="text" placeholder="Oggetto" style="width:100%; margin-bottom:1rem;" />
-    <textarea placeholder="Il tuo messaggio..."></textarea>
-    <button class="btn btn-primary" style="width:100%;">Invia messaggio 🐾</button>
-  </div>
+    <input type="text" name="oggetto" placeholder="Oggetto" style="width:100%; margin-bottom:1rem;" />
+    <input type="hidden" name="_subject" value="Nuovo messaggio dal sito - Anima Mundi" />
+    <textarea name="messaggio" placeholder="Il tuo messaggio..." required></textarea>
+    <button type="submit" class="btn btn-primary" style="width:100%;">Invia messaggio 🐾</button>
+    <div class="form-success" id="successContatto">Messaggio inviato! Ti risponderemo al più presto. 🎉</div>
+  </form>
 </section>
 
 <!-- FOOTER -->
@@ -928,10 +1333,72 @@ document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 window.addEventListener('scroll', () => {
   const nav = document.querySelector('nav');
   if (window.scrollY > 50) {
-    nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
+    nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
   } else {
-    nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.08)';
+    nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
   }
+});
+
+// Close mobile menu on link click
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    document.getElementById('navLinks').classList.remove('active');
+  });
+});
+
+// Counter animation
+function animateCounters() {
+  document.querySelectorAll('.counter-item h2').forEach(counter => {
+    const text = counter.textContent;
+    const match = text.match(/(\d+)/);
+    if (!match) return;
+    const target = parseInt(match[1]);
+    const suffix = text.replace(match[1], '');
+    let current = 0;
+    const increment = Math.ceil(target / 60);
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      counter.textContent = current + suffix;
+    }, 30);
+  });
+}
+
+const counterSection = document.querySelector('.counter-section');
+if (counterSection) {
+  const counterObs = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      animateCounters();
+      counterObs.unobserve(counterSection);
+    }
+  }, { threshold: 0.3 });
+  counterObs.observe(counterSection);
+}
+
+// Form handling with Formspree
+document.querySelectorAll('form[action*="formspree"]').forEach(form => {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    const successDiv = this.querySelector('.form-success');
+    
+    fetch(this.action, {
+      method: 'POST',
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    }).then(response => {
+      if (response.ok) {
+        this.reset();
+        if (successDiv) successDiv.classList.add('show');
+        setTimeout(() => { if (successDiv) successDiv.classList.remove('show'); }, 5000);
+      }
+    }).catch(() => {
+      alert('Errore nell\'invio. Riprova più tardi.');
+    });
+  });
 });
 </script>
 </body>
