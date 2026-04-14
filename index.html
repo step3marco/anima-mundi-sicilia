@@ -1209,29 +1209,134 @@ footer p {
 
 <!-- FORM DIVENTA SOCIO -->
 <section class="associazione-section" id="form-socio">
-  <h2 class="section-title fade-up">Diventa Socio 🤝</h2>
-  <p class="section-subtitle fade-up">Compila il modulo e ti ricontatteremo per completare l'iscrizione!</p>
+  <h2 class="section-title fade-up">Domanda di Adesione e Iscrizione Socio 🤝</h2>
+  <p class="section-subtitle fade-up">Compila il modulo per richiedere l'iscrizione all'Associazione Anima Mundi Sicilia ODV</p>
   
-  <form class="associazione-form fade-up" action="https://formspree.io/f/mzdyzpvl" method="POST">
+  <form class="associazione-form fade-up" action="https://formspree.io/f/mzdyzpvl" method="POST" style="max-width:750px;">
+    
+    <p style="text-align:center; font-size:0.85rem; color:#888; margin-bottom:1.5rem;">Al Consiglio Direttivo dell'Associazione Anima Mundi Sicilia ODV<br>Sede Legale: Partanna, via Abruzzi, 22 — C.F. 90028960814</p>
+
+    <h3 style="font-family:'Fredoka',sans-serif; color:var(--forest); margin-bottom:1rem; font-size:1.1rem;">📋 Anagrafica</h3>
+    
     <div class="form-row">
       <div>
         <label>Nome *</label>
-        <input type="text" name="nome" required placeholder="Il tuo nome" />
+        <input type="text" name="nome" required placeholder="Nome" />
       </div>
       <div>
         <label>Cognome *</label>
-        <input type="text" name="cognome" required placeholder="Il tuo cognome" />
+        <input type="text" name="cognome" required placeholder="Cognome" />
       </div>
     </div>
-    <label>Email *</label>
-    <input type="email" name="email" required placeholder="La tua email" />
-    <label>Telefono</label>
-    <input type="tel" name="telefono" placeholder="Il tuo numero di telefono" />
-    <label>Perché vuoi unirti a noi?</label>
-    <textarea name="motivazione" placeholder="Raccontaci qualcosa di te e perché vorresti associarti..."></textarea>
-    <input type="hidden" name="_subject" value="Nuova richiesta associazione - Anima Mundi Sicilia" />
-    <button type="submit" class="btn btn-primary" style="width:100%;">Invia richiesta 🐾</button>
-    <div class="form-success">Grazie! La tua richiesta è stata inviata. Ti ricontatteremo presto! 🎉</div>
+
+    <div class="form-row">
+      <div>
+        <label>Nato/a a *</label>
+        <input type="text" name="luogo_nascita" required placeholder="Luogo di nascita" />
+      </div>
+      <div>
+        <label>Prov.</label>
+        <input type="text" name="prov_nascita" placeholder="Prov." maxlength="2" />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div>
+        <label>Data di nascita *</label>
+        <input type="date" name="data_nascita" required />
+      </div>
+      <div>
+        <label>Codice Fiscale *</label>
+        <input type="text" name="codice_fiscale" required placeholder="Codice Fiscale" maxlength="16" style="text-transform:uppercase;" />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div style="flex:3;">
+        <label>Indirizzo di residenza *</label>
+        <input type="text" name="indirizzo" required placeholder="Via/Piazza" />
+      </div>
+      <div style="flex:1;">
+        <label>N° *</label>
+        <input type="text" name="civico" required placeholder="N°" />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div style="flex:3;">
+        <label>Città *</label>
+        <input type="text" name="citta" required placeholder="Città" />
+      </div>
+      <div style="flex:1;">
+        <label>C.A.P. *</label>
+        <input type="text" name="cap" required placeholder="C.A.P." maxlength="5" />
+      </div>
+      <div style="flex:1;">
+        <label>Prov. *</label>
+        <input type="text" name="provincia" required placeholder="Prov." maxlength="2" />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div>
+        <label>Telefono *</label>
+        <input type="tel" name="telefono" required placeholder="Numero di telefono" />
+      </div>
+      <div>
+        <label>E-mail *</label>
+        <input type="email" name="email" required placeholder="Indirizzo e-mail" />
+      </div>
+    </div>
+
+    <label>Professione</label>
+    <input type="text" name="professione" placeholder="Professione" />
+
+    <hr style="border:none; border-top:2px solid #EEE; margin:1.5rem 0;">
+
+    <h3 style="font-family:'Fredoka',sans-serif; color:var(--forest); margin-bottom:0.5rem; font-size:1.1rem;">📝 Richiesta</h3>
+    <p style="font-size:0.9rem; color:#666; margin-bottom:1.5rem; line-height:1.6;">Chiedo di essere ammesso/a in qualità di Socio dell'Associazione "Anima Mundi Sicilia ODV" per l'anno in corso, dichiarando di condividere le finalità dell'Ente e di impegnarmi ad osservarne lo Statuto e i regolamenti interni.</p>
+
+    <h3 style="font-family:'Fredoka',sans-serif; color:var(--forest); margin-bottom:1rem; font-size:1.1rem;">💳 Categoria di Socio e Quota Associativa</h3>
+
+    <div style="background:var(--warm-bg); border-radius:14px; padding:1.2rem; margin-bottom:1rem;">
+      <label style="display:flex; align-items:center; gap:0.6rem; cursor:pointer; margin-bottom:0.8rem;">
+        <input type="radio" name="categoria_socio" value="Socio Junior (€5)" required style="width:auto; margin:0;" />
+        <span><strong>Socio Junior</strong> (fino a 18 anni) — Quota annuale <strong>€ 5,00</strong></span>
+      </label>
+      <label style="display:flex; align-items:center; gap:0.6rem; cursor:pointer; margin-bottom:0.8rem;">
+        <input type="radio" name="categoria_socio" value="Socio Ordinario (€20)" style="width:auto; margin:0;" />
+        <span><strong>Socio Ordinario</strong> — Quota annuale <strong>€ 20,00</strong></span>
+      </label>
+      <label style="display:flex; align-items:center; gap:0.6rem; cursor:pointer;">
+        <input type="radio" name="categoria_socio" value="Socio Sostenitore (€50+)" style="width:auto; margin:0;" />
+        <span><strong>Socio Sostenitore</strong> — Quota annuale <strong>€ 50,00</strong> o superiore</span>
+      </label>
+    </div>
+
+    <div style="background:var(--warm-bg); border-radius:14px; padding:1.2rem; margin-bottom:1.5rem;">
+      <label style="display:flex; align-items:flex-start; gap:0.6rem; cursor:pointer;">
+        <input type="checkbox" name="volontariato" value="Sì" style="width:auto; margin:0; margin-top:0.2rem;" />
+        <span style="font-size:0.9rem;">Mi rendo inoltre disponibile a prestare la mia opera di <strong>volontariato gratuito</strong> nelle attività dell'Associazione.</span>
+      </label>
+    </div>
+
+    <hr style="border:none; border-top:2px solid #EEE; margin:1.5rem 0;">
+
+    <h3 style="font-family:'Fredoka',sans-serif; color:var(--forest); margin-bottom:0.5rem; font-size:1.1rem;">🔒 Privacy (GDPR)</h3>
+    <p style="font-size:0.8rem; color:#888; margin-bottom:1rem; line-height:1.6;">Dichiaro di aver ricevuto l'informativa di cui all'art. 13 del Regolamento UE 2016/679 (GDPR) e acconsento al trattamento dei miei dati personali per le finalità istituzionali dell'Associazione, strettamente connesse alla gestione del rapporto associativo.</p>
+    
+    <div style="background:var(--warm-bg); border-radius:14px; padding:1.2rem; margin-bottom:1.5rem;">
+      <label style="display:flex; align-items:flex-start; gap:0.6rem; cursor:pointer;">
+        <input type="checkbox" name="consenso_privacy" value="Acconsento" required style="width:auto; margin:0; margin-top:0.2rem;" />
+        <span style="font-size:0.9rem;"><strong>Acconsento</strong> al trattamento dei dati personali *</span>
+      </label>
+    </div>
+
+    <p style="font-size:0.8rem; color:#888; margin-bottom:1rem; text-align:center;">Per i minori è necessaria la firma di un genitore/tutore</p>
+
+    <input type="hidden" name="_subject" value="Nuova domanda di iscrizione socio - Anima Mundi Sicilia ODV" />
+    <button type="submit" class="btn btn-primary" style="width:100%; font-size:1rem; padding:1rem;">Invia domanda di iscrizione 🐾</button>
+    <div class="form-success">Grazie! La tua domanda è stata inviata. Ti ricontatteremo per completare l'iscrizione! 🎉</div>
   </form>
 </section>
 
