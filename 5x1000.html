@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5x1000 — Anima Mundi Sicilia ODV</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --coral: #FF6B6B;
+  --forest: #2E6B47;
+  --sky: #4ECDC4;
+  --grass: #6BCB77;
+  --lavender: #A78BFA;
+  --sun: #FFB347;
+  --deep: #2D3436;
+  --white: #FFFFFF;
+  --warm-bg: #FFF9F0;
+  --sand: #FFF5E4;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Nunito', sans-serif; color: var(--deep); background: var(--warm-bg); }
+h1, h2, h3, h4 { font-family: 'Fredoka', sans-serif; }
+
+/* HERO */
+.hero-5x1000 {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #E8F8F5 0%, #C8E6C9 30%, #A5D6A7 60%, #FFF5E4 100%);
+  position: relative;
+  overflow: hidden;
+}
+.hero-5x1000::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(ellipse at 30% 50%, rgba(107,203,119,0.15) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 30%, rgba(78,205,196,0.1) 0%, transparent 50%);
+  animation: heroFloat 20s ease-in-out infinite;
+}
+@keyframes heroFloat {
+  0%, 100% { transform: translate(0,0) rotate(0deg); }
+  33% { transform: translate(2%,-2%) rotate(1deg); }
+  66% { transform: translate(-1%,1%) rotate(-1deg); }
+}
+.hero-5x1000-content {
+  position: relative;
+  z-index: 2;
+  max-width: 750px;
+}
+.hero-5x1000 h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: var(--forest);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+.hero-5x1000 h1 span { color: var(--grass); }
+.hero-5x1000 .subtitle {
+  font-size: clamp(1rem, 2.2vw, 1.3rem);
+  font-weight: 600;
+  color: var(--deep);
+  opacity: 0.85;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+.hero-5x1000 .quote {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  padding: 2rem;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #444;
+  font-style: italic;
+  margin-bottom: 2rem;
+  border-left: 4px solid var(--grass);
+}
+
+/* CF BOX */
+.cf-box {
+  background: var(--forest);
+  color: var(--white);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  box-shadow: 0 8px 30px rgba(46,107,71,0.3);
+}
+.cf-box .cf-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+.cf-box .cf-code {
+  font-family: monospace;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 0.5rem;
+  user-select: all;
+}
+.cf-box .cf-name {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+.cf-copy-hint {
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 0.5rem;
+}
+
+/* NAV BAR */
+.back-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(46,107,71,0.95);
+  backdrop-filter: blur(8px);
+  padding: 0.8rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.back-bar a {
+  color: var(--white);
+  text-decoration: none;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.back-bar a:hover { opacity: 0.8; }
+
+/* SECTIONS */
+section { padding: 5rem 2rem; }
+.section-title {
+  text-align: center;
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  margin-bottom: 1rem;
+}
+.section-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  line-height: 1.7;
+}
+
+/* COME FUNZIONA */
+.come-funziona { background: var(--white); }
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.step-card {
+  background: var(--sand);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  transition: transform 0.3s;
+}
+.step-card:hover { transform: translateY(-5px); }
+.step-number {
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  background: var(--grass);
+  color: var(--white);
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+.step-card h3 { margin-bottom: 0.5rem; font-size: 1.1rem; }
+.step-card p { font-size: 0.9rem; color: #666; line-height: 1.6; }
+
+/* COSA FACCIAMO */
+.cosa-facciamo-5x { background: linear-gradient(135deg, #E8F8F5, #FFF5E4); }
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.impact-card {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.06);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.impact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.impact-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+.impact-card-body {
+  padding: 1.5rem;
+}
+.impact-card-label {
+  display: inline-block;
+  background: var(--grass);
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.7rem;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+.impact-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+.impact-card p { font-size: 0.88rem; color: #666; line-height: 1.6; }
+
+/* CTA FINALE */
+.cta-finale {
+  background: var(--forest);
+  color: var(--white);
+  text-align: center;
+}
+.cta-finale h2 { color: var(--white); margin-bottom: 1.5rem; }
+.cta-finale p { color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto 2rem; line-height: 1.7; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+.btn-white {
+  background: var(--white);
+  color: var(--forest);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.btn-white:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+
+/* FOOTER */
+footer {
+  background: var(--deep);
+  color: rgba(255,255,255,0.7);
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.85rem;
+}
+footer a { color: var(--grass); text-decoration: none; }
+
+/* ANIMATIONS */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+  .hero-5x1000 { padding: 5rem 1.5rem 3rem; min-height: auto; }
+  section { padding: 3.5rem 1.5rem; }
+  .cf-box { padding: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<div class="back-bar">
+  <a href="index.html">← Torna al sito</a>
+  <a href="index.html">Anima Mundi Sicilia</a>
+</div>
+
+<!-- HERO -->
+<section class="hero-5x1000">
+  <div class="hero-5x1000-content">
+    <h1>Trasforma la tua firma in <span>cibo, cure e libertà.</span></h1>
+    <p class="subtitle">Devolvere il tuo 5×1000 ad Anima Mundi Sicilia non ti costa nulla, ma per un animale abbandonato può significare tutto.</p>
+    
+    <div class="quote fade-up">
+      Ci sono occhi che non hanno voce, ma che sanno chiedere aiuto meglio di chiunque altro. Sono gli occhi dei randagi di Partanna e del nostro territorio. Ogni giorno lottiamo contro l'indifferenza per garantire loro un pasto caldo, una cuccia sicura e le cure veterinarie di cui hanno bisogno. Con una semplice firma, puoi diventare la loro forza e il loro futuro.
+    </div>
+
+    <div class="cf-box fade-up">
+      <div class="cf-label">Codice Fiscale</div>
+      <div class="cf-code">90028960814</div>
+      <div class="cf-name">Anima Mundi Sicilia ODV</div>
+    </div>
+    <p class="cf-copy-hint">Copia il codice e portalo dal tuo commercialista!</p>
+  </div>
+</section>
+
+<!-- COME FUNZIONA -->
+<section class="come-funziona">
+  <h2 class="section-title fade-up" style="color: var(--forest);">Come funziona? 🤔</h2>
+  <p class="section-subtitle fade-up">Il 5×1000 è una quota dell'IRPEF che lo Stato ripartisce tra gli enti del terzo settore. <strong>Non è una tassa in più</strong> e non sostituisce l'8×1000 o il 2×1000. Se non scegli a chi destinarlo, resterà allo Stato.</p>
+  
+  <div class="steps-grid">
+    <div class="step-card fade-up">
+      <div class="step-number">1</div>
+      <h3>Firma</h3>
+      <p>Nel riquadro "Sostegno degli Enti del Terzo Settore" della tua dichiarazione dei redditi (730, Redditi PF o Certificazione Unica).</p>
+    </div>
+    <div class="step-card fade-up">
+      <div class="step-number">2</div>
+      <h3>Inserisci il C.F.</h3>
+      <p>Scrivi il Codice Fiscale di Anima Mundi Sicilia: <strong style="font-family:monospace; font-size:1.1rem;">90028960814</strong></p>
+    </div>
+    <div class="step-card fade-up">
+      <div class="step-number">3</div>
+      <h3>Passa parola!</h3>
+      <p>Racconta ad amici e parenti quanto è facile aiutarci. Una firma in più può cambiare la vita di un animale.</p>
+    </div>
+  </div>
+  
+  <p class="fade-up" style="text-align:center; margin-top:2.5rem; font-size:0.9rem; color:#888; max-width:600px; margin-left:auto; margin-right:auto;">
+    💡 Anche chi non è tenuto a presentare la dichiarazione dei redditi può donare il 5×1000 usando l'apposita scheda fornita dal datore di lavoro o dall'INPS.
+  </p>
+</section>
+
+<!-- COSA FACCIAMO CON IL TUO AIUTO -->
+<section class="cosa-facciamo-5x">
+  <h2 class="section-title fade-up" style="color: var(--grass);">Il tuo 5×1000 diventa... 💚</h2>
+  <p class="section-subtitle fade-up">Ecco come il tuo contributo si trasforma in azioni concrete per gli animali del territorio.</p>
+  
+  <div class="impact-grid">
+    <div class="impact-card fade-up">
+      <img src="faemaci.jpg" alt="Farmaci e cure veterinarie">
+      <div class="impact-card-body">
+        <span class="impact-card-label">💊 Cure veterinarie</span>
+        <h3>Farmaci e interventi d'urgenza</h3>
+        <p>Medicinali, antiparassitari e interventi per animali feriti o malati. Ogni cura restituisce una speranza.</p>
+      </div>
+    </div>
+
+    <div class="impact-card fade-up">
+      <img src="gatti.jpg" alt="Lotta all'abbandono">
+      <div class="impact-card-body">
+        <span class="impact-card-label">🚫 Lotta all'abbandono</span>
+        <h3>Contro l'abbandono</h3>
+        <p>Recuperiamo animali abbandonati in condizioni terribili, restituendo loro dignità e una possibilità di vita.</p>
+      </div>
+    </div>
+
+    <div class="impact-card fade-up">
+      <img src="attrezzi.jpg" alt="Attrezzature per il salvataggio">
+      <div class="impact-card-body">
+        <span class="impact-card-label">🧤 Attrezzature</span>
+        <h3>Strumenti per il salvataggio</h3>
+        <p>Guanti protettivi, trasportini, reti e tutto il necessario per operare in sicurezza durante i recuperi.</p>
+      </div>
+    </div>
+
+    <div class="impact-card fade-up">
+      <img src="cibo.jpg" alt="Cibo per randagi">
+      <div class="impact-card-body">
+        <span class="impact-card-label">🍽️ Cibo</span>
+        <h3>Pasti per chi non ha nessuno</h3>
+        <p>Tonnellate di crocchette e cibo umido per garantire pasti quotidiani ai randagi del territorio.</p>
+      </div>
+    </div>
+
+    <div class="impact-card fade-up">
+      <img src="abbandono.jpg" alt="Lotta al randagismo">
+      <div class="impact-card-body">
+        <span class="impact-card-label">🐾 Sterilizzazioni</span>
+        <h3>Combattere il randagismo</h3>
+        <p>Campagne di sterilizzazione: l'unico modo efficace per ridurre il randagismo alla radice.</p>
+      </div>
+    </div>
+
+    <div class="impact-card fade-up">
+      <img src="affetto.jpg" alt="Adozioni e famiglie">
+      <div class="impact-card-body">
+        <span class="impact-card-label">❤️ Adozioni</span>
+        <h3>Famiglie per sempre</h3>
+        <p>Ricerca di famiglie adottive tramite staffette autorizzate, garantendo un futuro sicuro a ogni animale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINALE -->
+<section class="cta-finale">
+  <h2 class="section-title fade-up">Una firma, mille vite salvate 🐾</h2>
+  <p class="fade-up">Non dimenticare: destinare il 5×1000 non ti costa nulla. Ma per noi, e soprattutto per loro, vale tantissimo.</p>
+  
+  <div class="cf-box fade-up" style="background: rgba(255,255,255,0.15); box-shadow: none; margin-bottom: 2rem;">
+    <div class="cf-label">Codice Fiscale</div>
+    <div class="cf-code">90028960814</div>
+    <div class="cf-name">Anima Mundi Sicilia ODV — Partanna (TP)</div>
+  </div>
+
+  <p class="fade-up" style="font-size: 1.1rem; margin-bottom: 2rem;">Se desideri contribuire anche con una donazione diretta:</p>
+  <p class="fade-up" style="font-family:monospace; font-size:1.1rem; background:rgba(255,255,255,0.1); display:inline-block; padding:0.8rem 1.5rem; border-radius:12px; margin-bottom:2rem;">IBAN: IT48G0303281910010001215410</p>
+  <br><br>
+  <a href="index.html" class="btn btn-white fade-up">← Torna al sito</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Anima Mundi Sicilia ODV — Sede: Partanna, via Abruzzi, 22 — C.F. 90028960814</p>
+  <p style="margin-top:0.5rem;"><a href="index.html">www.anima-mundi-sicilia.net</a></p>
+  <p style="margin-top:0.5rem; font-size:0.75rem; opacity:0.5;">Fatto con ❤️ per i nostri amici a quattro zampe</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => { entry.target.classList.add('visible'); }, index * 100);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
