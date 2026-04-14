@@ -1055,88 +1055,85 @@ footer p {
 }
 .heartbeat { animation: heartbeat 2.5s infinite; display: inline-block; }
 
-/* ===== NEWS TICKER ===== */
+/* ===== NEWS TICKER RAINEWS ===== */
 .news-ticker-wrap {
   width: 100%;
-  max-width: 700px;
-  margin: 2rem auto 0;
   position: relative;
   z-index: 2;
+  margin-top: 2.5rem;
 }
-.news-ticker-label {
-  display: inline-block;
+.news-ticker-bar {
   background: var(--coral);
+  display: flex;
+  align-items: center;
+  height: 44px;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(255,107,107,0.3);
+  max-width: 800px;
+  margin: 0 auto;
+}
+.news-ticker-tag {
+  background: rgba(0,0,0,0.15);
   color: var(--white);
   font-family: 'Fredoka', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  padding: 0.3rem 0.8rem;
-  border-radius: 20px 20px 0 0;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-.news-ticker {
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(8px);
-  border-radius: 0 16px 16px 16px;
-  padding: 0;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  position: relative;
-  height: 60px;
-}
-.news-ticker-inner {
-  position: relative;
-  height: 100%;
-}
-.news-ticker-item {
-  position: absolute;
-  top: 0; left: 0; right: 0;
+  padding: 0 1rem;
   height: 100%;
   display: flex;
   align-items: center;
-  padding: 0 1.2rem;
-  gap: 0.8rem;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  text-decoration: none;
-  color: var(--deep);
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  flex-shrink: 0;
+  border-radius: 22px 0 0 22px;
+}
+.news-ticker-scroll {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  height: 100%;
   cursor: pointer;
 }
-.news-ticker-item.active {
-  opacity: 1;
-  transform: translateY(0);
+.news-ticker-track {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  animation: tickerScroll 25s linear infinite;
+  white-space: nowrap;
 }
-.news-ticker-item:hover {
-  background: rgba(255,107,107,0.05);
+.news-ticker-track:hover {
+  animation-play-state: paused;
 }
-.news-ticker-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-.news-ticker-dot.urgent { background: var(--coral); animation: heartbeat 2s infinite; }
-.news-ticker-dot.normal { background: var(--grass); }
-.news-ticker-text {
-  flex: 1;
+.news-ticker-entry {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 2rem;
+  color: var(--white);
   font-size: 0.9rem;
   font-weight: 600;
+  text-decoration: none;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  height: 100%;
 }
-.news-ticker-date {
-  font-size: 0.75rem;
-  color: #999;
-  flex-shrink: 0;
+.news-ticker-entry:hover {
+  text-decoration: underline;
+}
+.news-ticker-separator {
+  color: rgba(255,255,255,0.4);
+  font-size: 1.2rem;
+  padding: 0 0.5rem;
+}
+@keyframes tickerScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 @media (max-width: 768px) {
-  .news-ticker-wrap { max-width: 95%; }
-  .news-ticker { height: 50px; }
-  .news-ticker-text { font-size: 0.8rem; }
-  .news-ticker-date { display: none; }
+  .news-ticker-bar { border-radius: 0; max-width: 100%; height: 40px; }
+  .news-ticker-entry { font-size: 0.8rem; padding: 0 1.5rem; }
+  .news-ticker-tag { font-size: 0.65rem; padding: 0 0.7rem; }
 }
 </style>
 </head>
@@ -1178,17 +1175,22 @@ footer p {
       <a href="#aiutaci" class="btn btn-secondary">💛 Sostienici</a>
     </div>
 
-    <!-- NEWS TICKER -->
+    <!-- NEWS TICKER RAINEWS -->
     <div class="news-ticker-wrap">
-      <span class="news-ticker-label">📰 Ultime News</span>
-      <div class="news-ticker">
-        <div class="news-ticker-inner" id="newsTicker">
-          <a href="#news-argo" class="news-ticker-item active">
-            <span class="news-ticker-dot urgent"></span>
-            <span class="news-ticker-text">🚨 Aiuto per Argo — cucciolo di 4 mesi investito, cerca stallo e cure</span>
-            <span class="news-ticker-date">Apr 2026</span>
-          </a>
-          <!-- Aggiungi altre news qui copiando il blocco sopra -->
+      <div class="news-ticker-bar">
+        <div class="news-ticker-tag">📰 News</div>
+        <div class="news-ticker-scroll">
+          <div class="news-ticker-track">
+            <a href="#news-argo" class="news-ticker-entry">🚨 Aiuto per Argo — cucciolo di 4 mesi investito, cerca stallo e cure</a>
+            <span class="news-ticker-separator">●</span>
+            <a href="#news-5x1000" class="news-ticker-entry">🌱 Dona il tuo 5×1000 ad Anima Mundi Sicilia — non ti costa nulla!</a>
+            <span class="news-ticker-separator">●</span>
+            <!-- Duplicato per loop continuo -->
+            <a href="#news-argo" class="news-ticker-entry">🚨 Aiuto per Argo — cucciolo di 4 mesi investito, cerca stallo e cure</a>
+            <span class="news-ticker-separator">●</span>
+            <a href="#news-5x1000" class="news-ticker-entry">🌱 Dona il tuo 5×1000 ad Anima Mundi Sicilia — non ti costa nulla!</a>
+            <span class="news-ticker-separator">●</span>
+          </div>
         </div>
       </div>
     </div>
@@ -1255,28 +1257,6 @@ footer p {
   </div>
 </section>
 
-<!-- ANTEPRIMA NEWS (homepage) -->
-<section style="background: linear-gradient(135deg, #FFF5E4 0%, #E8F8F5 100%); padding: 5rem 2rem;">
-  <h2 class="section-title fade-up" style="color: var(--coral);">Ultime News 📰</h2>
-  <p class="section-subtitle fade-up">Le ultime storie dai nostri volontari sul campo.</p>
-  
-  <div style="max-width:700px; margin:0 auto;">
-    <div class="news-card fade-up" style="border-left: 4px solid var(--coral);">
-      <div class="news-card-body">
-        <span class="news-badge">🚨 Urgente</span>
-        <div class="news-card-date">Aprile 2026</div>
-        <h3>Aiuto per Argo, un cucciolo in difficoltà</h3>
-        <p>Questo piccolo ha solo 4 mesi ed è stato investito. Ha urgente bisogno di una radiografia e di uno stallo temporaneo. Cerchiamo aiuto economico e un posto sicuro dove possa ricevere le cure.</p>
-        <a href="#news" class="news-link" style="margin-top:0.5rem; display:inline-block;">Leggi tutto →</a>
-      </div>
-    </div>
-  </div>
-  
-  <div style="text-align:center; margin-top:2rem;">
-    <a href="#news" class="btn btn-primary">Tutte le news →</a>
-  </div>
-</section>
-
 <!-- CONTATTI -->
 
 <!-- NEWS -->
@@ -1301,6 +1281,23 @@ footer p {
         <p style="margin-top:0.5rem;">Anche una condivisione può fare la differenza! Chiunque voglia contribuire o offrire aiuto può contattarci in privato.</p>
         <p style="margin-top:0.5rem;">Se desideri puoi contribuire anche con una donazione diretta: trovate l'IBAN nella sezione <a href="#info-donazioni" class="news-link">Dona</a>.</p>
         <p style="margin-top:0.8rem; font-weight:700; color: var(--coral);">Grazie di cuore a chi darà una mano ❤️</p>
+      </div>
+    </div>
+
+    <!-- NEWS - 5x1000 -->
+    <div class="news-card fade-up" id="news-5x1000" style="grid-column: span 2; max-width: 700px; margin: 0 auto;">
+      <div class="news-card-emoji" style="background: linear-gradient(135deg, #E8F8F5, #C8E6C9); font-size:3rem;">🌱 5×1000</div>
+      <div class="news-card-body">
+        <span class="news-badge" style="background: var(--grass);">💚 Sostienici</span>
+        <div class="news-card-date">2026</div>
+        <h3>Dona il tuo 5×1000 e fai la differenza!</h3>
+        <p>Sostieni le attività dell'associazione <strong>Anima Mundi Sicilia</strong> di Partanna (TP): con un piccolo gesto puoi contribuire a progetti importanti per il territorio e il benessere della comunità.</p>
+        <p style="margin-top:0.5rem;">I fondi raccolti saranno utilizzati per aiutare i randagi del territorio: <strong>cure veterinarie, cibo, sterilizzazioni</strong> e tutela degli animali più fragili.</p>
+        <p style="margin-top:0.5rem;">Destinare il tuo 5 per mille <strong>non ti costa nulla</strong>, ma per noi vale tantissimo!</p>
+        <p style="margin-top:0.8rem;">Se desideri contribuire anche con una donazione diretta, puoi effettuare un versamento al seguente IBAN:</p>
+        <p style="margin-top:0.5rem; background:var(--warm-bg); padding:0.8rem 1rem; border-radius:12px; font-family:monospace; font-size:1rem; font-weight:700; letter-spacing:1px; text-align:center;">IT48G0303281910010001215410</p>
+        <p style="margin-top:0.8rem;">Ogni contributo è un gesto d'amore che può cambiare la vita di tanti animali 🐾</p>
+        <p style="margin-top:0.5rem; font-weight:700; color: var(--grass);">Grazie di cuore a chi sceglierà di sostenerci ❤️</p>
       </div>
     </div>
 
@@ -1627,16 +1624,7 @@ document.querySelectorAll('form[action*="formspree"]').forEach(form => {
       alert('Errore nell\'invio. Riprova più tardi.');
     });
   });
-});// News ticker rotation
-const tickerItems = document.querySelectorAll('.news-ticker-item');
-if (tickerItems.length > 1) {
-  let currentTicker = 0;
-  setInterval(() => {
-    tickerItems[currentTicker].classList.remove('active');
-    currentTicker = (currentTicker + 1) % tickerItems.length;
-    tickerItems[currentTicker].classList.add('active');
-  }, 5000);
-}
+});
 </script>
 </body>
 </html>
