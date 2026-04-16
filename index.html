@@ -1195,7 +1195,7 @@ footer p {
       <div class="news-ticker-bar">
         <div class="news-ticker-tag">📰 News</div>
         <div class="news-ticker-scroll">
-          <div class="news-ticker-track">
+          <div class="news-ticker-track" id="ticker-track">
             <a href="#news-argo" class="news-ticker-entry">🚨 Aiuto per Argo — cucciolo di 4 mesi investito, cerca stallo e cure</a>
             <span class="news-ticker-separator">●</span>
             <a href="#news-argo" class="news-ticker-entry">🚨 Aiuto per Argo — cucciolo di 4 mesi investito, cerca stallo e cure</a>
@@ -1210,9 +1210,9 @@ footer p {
 <!-- COUNTER -->
 <section class="counter-section">
   <div class="counter-grid">
-    <div class="counter-item fade-up"><h2>500+</h2><p>Animali salvati</p></div>
-    <div class="counter-item fade-up"><h2>350+</h2><p>Adozioni felici</p></div>
-    <div class="counter-item fade-up"><h2>80+</h2><p>Volontari attivi</p></div>
+    <div class="counter-item fade-up"><h2 id="counter-animali">500+</h2><p>Animali salvati</p></div>
+    <div class="counter-item fade-up"><h2 id="counter-adozioni">350+</h2><p>Adozioni felici</p></div>
+    <div class="counter-item fade-up"><h2 id="counter-volontari">80+</h2><p>Volontari attivi</p></div>
     <div class="counter-item fade-up"><h2>∞</h2><p>Amore donato</p></div>
   </div>
 </section>
@@ -1626,6 +1626,41 @@ if (counterSection) {
   }, { threshold: 0.3 });
   counterObs.observe(counterSection);
 }
+
+// ===== CARICA DATI DAL CMS =====
+
+// Carica contatori
+fetch('/_data/contatori.json')
+  .then(r => r.json())
+  .then(data => {
+    if (data.animali) document.getElementById('counter-animali').textContent = data.animali;
+    if (data.adozioni) document.getElementById('counter-adozioni').textContent = data.adozioni;
+    if (data.volontari) document.getElementById('counter-volontari').textContent = data.volontari;
+  }).catch(() => {}); // se il file non esiste, mantieni i valori default
+
+// Carica news ticker dal CMS
+async function caricaTicker() {
+  try {
+    // Cerca tutti i file nella cartella _ticker
+    const files = ['/_ticker/notizia-1.md','/_ticker/notizia-2.md','/_ticker/notizia-3.md'];
+    const track = document.getElementById('ticker-track');
+    if (!track) return;
+    
+    const response = await fetch('/_ticker/index.json');
+    if (!response.ok) return;
+    const notizie = await response.json();
+    if (!notizie.length) return;
+    
+    // Costruisci il ticker con le notizie dal CMS (duplicato per scorrimento continuo)
+    let html = '';
+    [...notizie, ...notizie].forEach(n => {
+      html += `<a href="${n.link || '#news'}" class="news-ticker-entry">${n.emoji || '📢'} ${n.title}</a>`;
+      html += `<span class="news-ticker-separator">●</span>`;
+    });
+    track.innerHTML = html;
+  } catch(e) {}
+}
+caricaTicker();
 
 // Form handling with Formspree
 document.querySelectorAll('form[action*="formspree"]').forEach(form => {
