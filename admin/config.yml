@@ -1,0 +1,29 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: "news"
+    label: "News"
+    folder: "_news"
+    create: true
+    fields:
+      - {label: "Titolo", name: "title", widget: "string"}
+      - {label: "Data", name: "date", widget: "datetime"}
+      - {label: "Testo", name: "body", widget: "markdown"}
+      - {label: "Urgente", name: "urgente", widget: "boolean", default: false}
+
+  - name: "adozioni"
+    label: "Adozioni"
+    folder: "_adozioni"
+    create: true
+    fields:
+      - {label: "Nome", name: "title", widget: "string"}
+      - {label: "Specie", name: "specie", widget: "string"}
+      - {label: "Età", name: "eta", widget: "string"}
+      - {label: "Descrizione", name: "body", widget: "markdown"}
+      - {label: "Foto", name: "foto", widget: "image", required: false}
+      - {label: "Badge", name: "badge", widget: "select", options: ["Urgente", "Disponibile", "Nuovo arrivo"]}
