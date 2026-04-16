@@ -6,6 +6,26 @@ media_folder: "images"
 public_folder: "/images"
 
 collections:
+  - name: "impostazioni"
+    label: "Impostazioni Sito"
+    files:
+      - name: "contatori"
+        label: "Contatori"
+        file: "_data/contatori.json"
+        fields:
+          - {label: "Animali salvati", name: "animali", widget: "string"}
+          - {label: "Adozioni felici", name: "adozioni", widget: "string"}
+          - {label: "Volontari attivi", name: "volontari", widget: "string"}
+
+  - name: "ticker"
+    label: "News Ticker (banner scorrevole)"
+    folder: "_ticker"
+    create: true
+    fields:
+      - {label: "Testo", name: "title", widget: "string"}
+      - {label: "Link (opzionale)", name: "link", widget: "string", required: false}
+      - {label: "Emoji", name: "emoji", widget: "string", default: "📢"}
+
   - name: "news"
     label: "News"
     folder: "_news"
